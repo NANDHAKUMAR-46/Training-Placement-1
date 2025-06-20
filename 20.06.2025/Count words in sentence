@@ -1,0 +1,7 @@
+public class WordCount {
+    public static void main(String[] args) {
+        String sentence = "Java is simple";
+        String[] words = sentence.split(" ");
+        System.out.println("Words: " + words.length);
+    }
+}
