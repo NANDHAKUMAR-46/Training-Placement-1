@@ -1,0 +1,15 @@
+public class CountVC {
+    public static void main(String[] args) {
+        String str = "Hello World";
+        int v = 0, c = 0;
+        for (char ch : str.toCharArray()) {
+            if (Character.isLetter(ch)) {
+                if ("aeiouAEIOU".indexOf(ch) != -1)
+                    v++;
+                else
+                    c++;
+            }
+        }
+        System.out.println("Vowels: " + v + ", Consonants: " + c);
+    }
+}
