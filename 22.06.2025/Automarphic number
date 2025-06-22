@@ -1,0 +1,9 @@
+public class Automorphic {
+    public static void main(String[] args) {
+        int num = 76;
+        int square = num * num;
+        String nStr = String.valueOf(num);
+        String sqStr = String.valueOf(square);
+        System.out.println(nStr + (sqStr.endsWith(nStr) ? " is Automorphic" : " is not"));
+    }
+}
