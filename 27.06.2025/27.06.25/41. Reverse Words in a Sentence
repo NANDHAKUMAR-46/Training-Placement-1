@@ -1,4 +1,0 @@
-s = "Python is fun"
-words = s.split()
-rev = ' '.join(reversed(words))
-print(rev)
