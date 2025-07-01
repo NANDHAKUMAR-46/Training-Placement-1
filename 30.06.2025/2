@@ -1,13 +1,16 @@
-from math import *
+from collections import deque
 
-def arithmOptr(a,b):
-    if 1 <= a <= 10**10 and 1 <= b <= 10**10:
-        print(a + b)
-        print(a - b)
-        print(a * b)
+class Queue:
+    def __init__(self):
+        self.queue = deque()
 
-if __name__ == '__main__':
-    a = int(input())
-    b = int(input())
-    
-    arithmOptr(a,b)
+    def enqueue(self, item):
+        self.queue.append(item)
+
+    def dequeue(self):
+        return self.queue.popleft() if self.queue else None
+
+q = Queue()
+q.enqueue(1)
+q.enqueue(2)
+print(q.dequeue()) 
