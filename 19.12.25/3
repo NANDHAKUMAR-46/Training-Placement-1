@@ -1,0 +1,11 @@
+n,m = map(int,input().split())
+g = [list(map(int,input().split())) for _ in range(n)]
+x,y,c = map(int,input().split())
+old = g[x][y]
+def fill(i,j):
+    if i<0 or j<0 or i>=n or j>=m or g[i][j]!=old:
+        return
+    g[i][j]=c
+    fill(i+1,j);fill(i-1,j);fill(i,j+1);fill(i,j-1)
+fill(x,y)
+print(g)
