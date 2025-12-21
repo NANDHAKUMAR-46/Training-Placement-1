@@ -1,0 +1,17 @@
+n = int(input())
+b = [[-1]*n for _ in range(n)]
+m = [(2,1),(1,2),(-1,2),(-2,1),(-2,-1),(-1,-2),(1,-2),(2,-1)]
+def dfs(x,y,c):
+    if c == n*n:
+        return True
+    for dx,dy in m:
+        nx,ny = x+dx,y+dy
+        if 0<=nx<n and 0<=ny<n and b[nx][ny]==-1:
+            b[nx][ny]=c
+            if dfs(nx,ny,c+1):
+                return True
+            b[nx][ny]=-1
+    return False
+b[0][0]=0
+dfs(0,0,1)
+print(b)
