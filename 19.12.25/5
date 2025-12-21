@@ -1,0 +1,6 @@
+arr = list(map(int, input().split()))
+mx = cur = arr[0]
+for i in arr[1:]:
+    cur = max(i, cur+i)
+    mx = max(mx, cur)
+print(mx)
