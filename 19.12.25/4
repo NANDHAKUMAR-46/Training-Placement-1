@@ -1,0 +1,16 @@
+class Trie:
+    def __init__(self):
+        self.c = {}
+        self.e = False
+    def insert(self, w):
+        t = self
+        for i in w:
+            t = t.c.setdefault(i, Trie())
+        t.e = True
+    def search(self, w):
+        t = self
+        for i in w:
+            if i not in t.c:
+                return False
+            t = t.c[i]
+        return t.e
