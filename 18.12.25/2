@@ -1,0 +1,24 @@
+n=int(input())
+g=[list(map(int,input().split())) for _ in range(n)]
+d={}
+idx=2
+def dfs(i,j):
+    if i<0 or j<0 or i>=n or j>=n or g[i][j]!=1:return 0
+    g[i][j]=idx
+    return 1+dfs(i+1,j)+dfs(i-1,j)+dfs(i,j+1)+dfs(i,j-1)
+for i in range(n):
+    for j in range(n):
+        if g[i][j]==1:
+            d[idx]=dfs(i,j)
+            idx+=1
+res=max(d.values(),default=0)
+for i in range(n):
+    for j in range(n):
+        if g[i][j]==0:
+            s=set()
+            for dx,dy in [(1,0),(-1,0),(0,1),(0,-1)]:
+                ni,nj=i+dx,j+dy
+                if 0<=ni<n and 0<=nj<n and g[ni][nj]>1:
+                    s.add(g[ni][nj])
+            res=max(res,1+sum(d[x] for x in s))
+print(res)
