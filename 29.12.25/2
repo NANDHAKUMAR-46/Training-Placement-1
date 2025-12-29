@@ -1,0 +1,6 @@
+g=[list(map(int,input().split())) for _ in range(int(input()))]
+for i in range(len(g)):
+    for j in range(len(g[0])):
+        if i or j:
+            g[i][j]+=min(g[i-1][j] if i else 10**9,g[i][j-1] if j else 10**9)
+print(g[-1][-1])
