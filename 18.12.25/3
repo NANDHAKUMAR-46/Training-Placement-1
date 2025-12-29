@@ -1,0 +1,10 @@
+n,e=map(int,input().split())
+ed=[tuple(map(int,input().split())) for _ in range(e)]
+s=int(input())
+d=[float('inf')]*n
+d[s]=0
+for _ in range(n-1):
+    for u,v,w in ed:
+        if d[u]+w<d[v]:
+            d[v]=d[u]+w
+print(d)
