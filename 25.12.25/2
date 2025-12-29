@@ -1,0 +1,23 @@
+from collections import deque
+g=[list(map(int,input().split())) for _ in range(int(input()))]
+n,m=len(g),len(g[0])
+q=deque()
+f=0
+for i in range(n):
+    for j in range(m):
+        if g[i][j]==2:
+            q.append((i,j))
+        if g[i][j]==1:
+            f+=1
+t=0
+while q and f:
+    for _ in range(len(q)):
+        x,y=q.popleft()
+        for dx,dy in [(1,0),(-1,0),(0,1),(0,-1)]:
+            nx,ny=x+dx,y+dy
+            if 0<=nx<n and 0<=ny<m and g[nx][ny]==1:
+                g[nx][ny]=2
+                f-=1
+                q.append((nx,ny))
+    t+=1
+print(t if not f else -1)
