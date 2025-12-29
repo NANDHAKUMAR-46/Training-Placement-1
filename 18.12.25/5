@@ -1,0 +1,9 @@
+a=set(map(int,input().split()))
+m=0
+for x in a:
+    if x-1 not in a:
+        y=x
+        while y in a:
+            y+=1
+        m=max(m,y-x)
+print(m)
