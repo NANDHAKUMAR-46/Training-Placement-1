@@ -1,0 +1,9 @@
+a=list(map(int,input().split()))
+s=sum(a)
+if s%2:print(False)
+else:
+    t=s//2
+    dp={0}
+    for x in a:
+        dp|={x+y for y in dp if x+y<=t}
+    print(t in dp)
