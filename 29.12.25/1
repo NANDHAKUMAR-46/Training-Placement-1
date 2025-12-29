@@ -1,0 +1,8 @@
+s=set(map(int,input().split()))
+dp={0:{0}}
+for x in s:
+    for k in dp.get(x,[]):
+        for j in [k-1,k,k+1]:
+            if j>0 and x+j in s:
+                dp.setdefault(x+j,set()).add(j)
+print(bool(dp.get(max(s))))
