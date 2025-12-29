@@ -1,0 +1,16 @@
+n,m=map(int,input().split())
+g=[list(map(int,input().split())) for _ in range(n)]
+s=set()
+def dfs(i,j,b,si,sj):
+    if i<0 or j<0 or i>=n or j>=m or g[i][j]==0:return
+    g[i][j]=0
+    b.append((i-si,j-sj))
+    dfs(i+1,j,b,si,sj);dfs(i-1,j,b,si,sj)
+    dfs(i,j+1,b,si,sj);dfs(i,j-1,b,si,sj)
+for i in range(n):
+    for j in range(m):
+        if g[i][j]:
+            b=[]
+            dfs(i,j,b,i,j)
+            s.add(tuple(b))
+print(len(s))
