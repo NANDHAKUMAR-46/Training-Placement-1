@@ -1,0 +1,9 @@
+def f(r):
+    if not r:return 0
+    l=max(0,f(r.left))
+    s=max(0,f(r.right))
+    ans[0]=max(ans[0],r.val+l+s)
+    return r.val+max(l,s)
+ans=[-10**9]
+f(root)
+print(ans[0])
