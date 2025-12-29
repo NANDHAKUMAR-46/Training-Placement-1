@@ -1,0 +1,11 @@
+n = int(input())
+m = [list(map(int,input().split())) for _ in range(n)]
+c = 0
+for i in range(1,n):
+    if m[c][i]:
+        c = i
+ok = True
+for i in range(n):
+    if i!=c and (m[c][i] or not m[i][c]):
+        ok = False
+print(c if ok else -1)
