@@ -1,0 +1,15 @@
+jobs=[]
+for _ in range(int(input())):
+    d,p=map(int,input().split())
+    jobs.append((p,d))
+jobs.sort(reverse=True)
+mx=max(d for _,d in jobs)
+t=[False]*(mx+1)
+res=0
+for p,d in jobs:
+    for i in range(d,0,-1):
+        if not t[i]:
+            t[i]=True
+            res+=p
+            break
+print(res)
