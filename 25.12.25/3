@@ -1,0 +1,13 @@
+s=[]
+m=[]
+while True:
+    x=input()
+    if x=="q":break
+    if x[0]=="p":
+        v=int(x[2:])
+        s.append(v)
+        m.append(v if not m else min(v,m[-1]))
+    elif x=="o":
+        s.pop();m.pop()
+    else:
+        print(m[-1])
