@@ -1,0 +1,16 @@
+from collections import deque
+g=[list(map(int,input().split())) for _ in range(int(input()))]
+n=len(g)
+q=deque([(0,0,1)])
+v={(0,0)}
+while q:
+    x,y,d=q.popleft()
+    if (x,y)==(n-1,n-1):
+        print(d);break
+    for dx,dy in [(1,0),(0,1),(-1,0),(0,-1),(1,1),(-1,-1),(1,-1),(-1,1)]:
+        nx,ny=x+dx,y+dy
+        if 0<=nx<n and 0<=ny<n and g[nx][ny]==0 and (nx,ny) not in v:
+            v.add((nx,ny))
+            q.append((nx,ny,d+1))
+else:
+    print(-1)
