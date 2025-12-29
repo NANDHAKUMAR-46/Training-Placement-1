@@ -1,0 +1,6 @@
+a=list(map(int,input().split()))
+t=int(input())
+dp={0}
+for x in a:
+    dp|={x+y for y in dp}
+print(t in dp)
