@@ -1,0 +1,19 @@
+w=[input() for _ in range(int(input()))]
+from collections import defaultdict,deque
+g=defaultdict(set)
+ind={}
+for a,b in zip(w,w[1:]):
+    for x,y in zip(a,b):
+        if x!=y:
+            g[x].add(y)
+            ind[y]=ind.get(y,0)+1
+            break
+q=deque([c for c in set("".join(w)) if c not in ind])
+res=""
+while q:
+    c=q.popleft()
+    res+=c
+    for v in g[c]:
+        ind[v]-=1
+        if ind[v]==0:q.append(v)
+print(res)
