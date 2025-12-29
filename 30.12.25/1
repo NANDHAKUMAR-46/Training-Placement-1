@@ -1,0 +1,14 @@
+a=list(map(int,input().split()))
+l,r=0,len(a)-1
+lm=rm=0
+w=0
+while l<r:
+    if a[l]<a[r]:
+        lm=max(lm,a[l])
+        w+=lm-a[l]
+        l+=1
+    else:
+        rm=max(rm,a[r])
+        w+=rm-a[r]
+        r-=1
+print(w)
