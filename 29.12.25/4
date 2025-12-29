@@ -1,0 +1,8 @@
+n=int(input())
+c=sorted([0,n]+list(map(int,input().split())))
+dp=[[0]*len(c) for _ in range(len(c))]
+for l in range(2,len(c)):
+    for i in range(len(c)-l):
+        j=i+l
+        dp[i][j]=min(c[j]-c[i]+dp[i][k]+dp[k][j] for k in range(i+1,j))
+print(dp[0][-1])
